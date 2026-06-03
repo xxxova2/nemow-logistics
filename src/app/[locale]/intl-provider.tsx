@@ -1,0 +1,23 @@
+"use client"
+
+import { NextIntlClientProvider } from "next-intl"
+import { ScrollProvider } from "@/lib/scroll-context"
+import type { ReactNode } from "react"
+
+export function IntlProvider({
+  children,
+  locale,
+  messages,
+}: {
+  children: ReactNode
+  locale: string
+  messages: Record<string, unknown>
+}) {
+  return (
+    <NextIntlClientProvider messages={messages} locale={locale}>
+      <ScrollProvider>
+        {children}
+      </ScrollProvider>
+    </NextIntlClientProvider>
+  )
+}
