@@ -42,6 +42,35 @@
   --font-mono: var(--font-geist-mono);
 }
 
+@custom-variant dark (&:is(.dark *));
+
+.dark {
+  --color-background: #0f172a;
+  --color-foreground: #f8fafc;
+  --color-card: #1e293b;
+  --color-card-foreground: #f8fafc;
+  --color-popover: #1e293b;
+  --color-popover-foreground: #f8fafc;
+  --color-primary: #60a5fa;
+  --color-primary-foreground: #0f172a;
+  --color-secondary: #38bdf8;
+  --color-secondary-foreground: #0f172a;
+  --color-muted: #334155;
+  --color-muted-foreground: #94a3b8;
+  --color-accent: #fb923c;
+  --color-accent-foreground: #0f172a;
+  --color-destructive: #f87171;
+  --color-destructive-foreground: #f8fafc;
+  --color-border: #334155;
+  --color-input: #334155;
+  --color-ring: #60a5fa;
+  --color-brand-primary: #60a5fa;
+  --color-brand-secondary: #38bdf8;
+  --color-brand-accent: #fb923c;
+  --color-brand-bg: #0f172a;
+  --color-brand-text: #93c5fd;
+}
+
 body {
   background: var(--color-background);
   color: var(--color-foreground);
@@ -60,8 +89,12 @@ body {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(239, 246, 255, 0.35);
+  background: rgba(239, 246, 255, 0.15);
   z-index: 0;
+}
+
+.dark .page-bg::before {
+  background: rgba(15, 23, 42, 0.6);
 }
 
 .page-bg > * {

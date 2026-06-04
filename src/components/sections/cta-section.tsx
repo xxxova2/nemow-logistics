@@ -28,9 +28,9 @@ export function CTASection() {
   }, [])
 
   return (
-    <section ref={sectionRef} id="contact" className="relative min-h-screen flex items-center py-24 content-layer page-bg">
+    <section ref={sectionRef} id="contact" className="relative min-h-screen flex items-center py-24 content-layer">
       <div className="max-w-7xl mx-auto px-6">
-        <div ref={contentRef} className="relative max-w-5xl mx-auto p-8 md:p-12 lg:p-16 rounded-3xl bg-gradient-to-br from-card/90 via-card/70 to-primary/10 backdrop-blur-md border border-border/50 shadow-sm overflow-hidden">
+          <div ref={contentRef} className="relative max-w-5xl mx-auto p-8 md:p-12 lg:p-16 rounded-3xl bg-gradient-to-br from-card/30 via-card/20 to-primary/5 backdrop-blur-md border border-border/50 shadow-sm overflow-hidden">
           <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
           <div className="absolute bottom-0 left-0 w-48 h-48 bg-accent/10 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2" />
 
@@ -80,7 +80,7 @@ export function CTASection() {
             </div>
 
             <Link href="/contact">
-              <div className="p-6 md:p-8 rounded-2xl bg-card/80 backdrop-blur-md border border-border/50 hover:border-primary/50 shadow-sm transition-all duration-300 cursor-pointer">
+              <div className="p-6 md:p-8 rounded-2xl bg-card/30 backdrop-blur-md border border-border/50 hover:border-primary/50 shadow-sm transition-all duration-300 cursor-pointer">
                 <h3 className="text-xl font-semibold text-foreground mb-6">{t("quoteTitle")}</h3>
                 <p className="text-foreground/70 mb-6">{t("quoteDesc")}</p>
                 <Button size="lg" className="w-full bg-accent hover:bg-accent/90 text-accent-foreground h-12 glow-mint">
@@ -100,7 +100,7 @@ export function Footer() {
   const t = useTranslations("footer")
 
   return (
-    <footer className="relative py-12 border-t border-border/50 content-layer bg-card/40 backdrop-blur-sm">
+    <footer className="relative py-12 border-t border-border/50 content-layer bg-card/20 backdrop-blur-sm">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid md:grid-cols-4 gap-8 mb-12">
           <div className="md:col-span-2">

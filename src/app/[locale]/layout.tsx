@@ -31,8 +31,11 @@ export default async function LocaleLayout({
   const fontClass = locale === "ar" ? tajawal.variable : geist.variable
 
   return (
-    <html lang={locale} dir={dir} className={`${fontClass} h-full antialiased`}>
+    <html lang={locale} dir={dir} className={`${fontClass} h-full antialiased`} suppressHydrationWarning>
       <body className="min-h-full flex flex-col">
+        <script dangerouslySetInnerHTML={{
+          __html: `(function(){try{var t=localStorage.getItem("nemow-theme");if(t==="dark"||(!t&&window.matchMedia("(prefers-color-scheme:dark)").matches))document.documentElement.classList.add("dark")}catch(e){}})();`
+        }} />
         <IntlProvider locale={locale} messages={messages}>
           {children}
         </IntlProvider>

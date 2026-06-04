@@ -88,7 +88,7 @@ export function PackageSection() {
             </div>
           </div>
 
-          <div ref={timelineRef} className="relative p-6 md:p-8 rounded-3xl bg-card/80 backdrop-blur-md border border-border/50 shadow-sm">
+          <div ref={timelineRef} className="relative p-6 md:p-8 rounded-3xl bg-card/30 backdrop-blur-md border border-border/50 shadow-sm">
             <div className="flex items-center justify-between mb-8 pb-4 border-b border-border">
               <div>
                 <p className="text-sm text-muted-foreground mb-1">{t("trackingNumber")}</p>

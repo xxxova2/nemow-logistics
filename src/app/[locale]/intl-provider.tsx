@@ -2,6 +2,7 @@
 
 import { NextIntlClientProvider } from "next-intl"
 import { ScrollProvider } from "@/lib/scroll-context"
+import { ThemeProvider } from "@/lib/theme-context"
 import type { ReactNode } from "react"
 
 export function IntlProvider({
@@ -16,7 +17,9 @@ export function IntlProvider({
   return (
     <NextIntlClientProvider messages={messages} locale={locale} timeZone="Asia/Riyadh">
       <ScrollProvider>
-        {children}
+        <ThemeProvider>
+          {children}
+        </ThemeProvider>
       </ScrollProvider>
     </NextIntlClientProvider>
   )

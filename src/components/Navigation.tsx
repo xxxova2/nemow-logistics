@@ -2,15 +2,17 @@
 
 import { useState, useEffect } from "react"
 import Image from "next/image"
-import { Menu, X, Globe } from "lucide-react"
+import { Menu, X, Globe, Sun, Moon } from "lucide-react"
 import { useTranslations, useLocale } from "next-intl"
 import { Link, usePathname, useRouter } from "@/i18n/navigation"
 import { useScroll } from "@/lib/scroll-context"
+import { useTheme } from "@/lib/theme-context"
 
 export function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
   const { scrollProgress } = useScroll()
+  const { theme, toggleTheme } = useTheme()
   const t = useTranslations("nav")
   const locale = useLocale()
   const pathname = usePathname()
@@ -58,6 +60,13 @@ export function Navigation() {
 
           <div className="hidden md:flex items-center gap-4">
             <button
+              onClick={toggleTheme}
+              className="flex items-center justify-center w-9 h-9 rounded-md text-muted-foreground hover:text-foreground border border-border hover:border-primary/50 transition-all"
+              aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
+            >
+              {theme === "dark" ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
+            </button>
+            <button
               onClick={() => switchLocale(locale === "ar" ? "en" : "ar")}
               className="flex items-center gap-1.5 px-3 py-1.5 rounded-md text-xs font-medium text-muted-foreground hover:text-foreground border border-border hover:border-primary/50 transition-all"
             >
@@ -97,6 +106,13 @@ export function Navigation() {
                 {t("privacy")}
               </Link>
               <div className="flex flex-col gap-2 pt-4 border-t border-border">
+                <button
+                  onClick={() => { toggleTheme(); setIsOpen(false) }}
+                  className="flex items-center gap-1.5 px-3 py-2 rounded-md text-sm font-medium text-muted-foreground hover:text-foreground border border-border hover:border-primary/50 transition-all"
+                >
+                  {theme === "dark" ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
+                  {theme === "dark" ? "Light Mode" : "Dark Mode"}
+                </button>
                 <button
                   onClick={() => { switchLocale(locale === "ar" ? "en" : "ar"); setIsOpen(false) }}
                   className="flex items-center gap-1.5 px-3 py-2 rounded-md text-sm font-medium text-muted-foreground hover:text-foreground border border-border hover:border-primary/50 transition-all"

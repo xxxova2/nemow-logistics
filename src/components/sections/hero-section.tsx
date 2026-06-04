@@ -65,21 +65,21 @@ export function HeroSection() {
           </div>
 
           <div ref={statsRef} className="grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-3xl mx-auto">
-            <div className="flex flex-col items-center gap-3 p-6 rounded-2xl bg-card/80 backdrop-blur-md border border-border/50 shadow-sm">
+            <div className="flex flex-col items-center gap-3 p-6 rounded-2xl bg-card/30 backdrop-blur-md border border-border/50 shadow-sm">
               <div className="w-12 h-12 rounded-xl bg-accent/30 flex items-center justify-center">
                 <Package className="w-6 h-6 text-accent" />
               </div>
               <div className="text-lg font-bold text-foreground">{t("badge1Title")}</div>
               <div className="text-sm text-foreground/70 text-center">{t("badge1Desc")}</div>
             </div>
-            <div className="flex flex-col items-center gap-3 p-6 rounded-2xl bg-card/80 backdrop-blur-md border border-border/50 shadow-sm">
+            <div className="flex flex-col items-center gap-3 p-6 rounded-2xl bg-card/30 backdrop-blur-md border border-border/50 shadow-sm">
               <div className="w-12 h-12 rounded-xl bg-primary/30 flex items-center justify-center">
                 <Globe className="w-6 h-6 text-primary" />
               </div>
               <div className="text-lg font-bold text-foreground">{t("badge2Title")}</div>
               <div className="text-sm text-foreground/70 text-center">{t("badge2Desc")}</div>
             </div>
-            <div className="flex flex-col items-center gap-3 p-6 rounded-2xl bg-card/80 backdrop-blur-md border border-border/50 shadow-sm">
+            <div className="flex flex-col items-center gap-3 p-6 rounded-2xl bg-card/30 backdrop-blur-md border border-border/50 shadow-sm">
               <div className="w-12 h-12 rounded-xl bg-primary/30 flex items-center justify-center">
                 <Truck className="w-6 h-6 text-primary" />
               </div>

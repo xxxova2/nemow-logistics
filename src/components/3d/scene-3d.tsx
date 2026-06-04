@@ -6,9 +6,11 @@ import { PerspectiveCamera } from "@react-three/drei"
 import * as THREE from "three"
 import { MovingVan, RoadLine } from "./scene-objects"
 import { useScroll } from "@/lib/scroll-context"
+import { useTheme } from "@/lib/theme-context"
 
 function SceneContent() {
   const { scrollProgress } = useScroll()
+  const { theme } = useTheme()
   const [isMobile, setIsMobile] = useState(false)
 
   useEffect(() => {
@@ -19,9 +21,10 @@ function SceneContent() {
   }, [])
 
   useFrame(({ scene }) => {
-    const color = new THREE.Color(0xeff6ff)
+    const bgColor = theme === "dark" ? 0x0f172a : 0xeff6ff
+    const color = new THREE.Color(bgColor)
     scene.background = color
-    scene.fog = new THREE.Fog(color, 12, 35)
+    scene.fog = new THREE.Fog(color, theme === "dark" ? 8 : 12, theme === "dark" ? 25 : 35)
   })
 
   return (
@@ -40,6 +43,7 @@ function SceneContent() {
 export function Scene3D() {
   const [mounted, setMounted] = useState(false)
   const [reducedMotion, setReducedMotion] = useState(false)
+  const { theme } = useTheme()
 
   useEffect(() => {
     setMounted(true)
