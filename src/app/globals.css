@@ -5,10 +5,10 @@
   --color-background: #EFF6FF;
   --color-foreground: #020817;
 
-  --color-card: #FFFFFF;
+  --color-card: #DBEAFE;
   --color-card-foreground: #020817;
 
-  --color-popover: #FFFFFF;
+  --color-popover: #DBEAFE;
   --color-popover-foreground: #020817;
 
   --color-primary: #2563EB;
@@ -17,8 +17,8 @@
   --color-secondary: #3B82F6;
   --color-secondary-foreground: #020817;
 
-  --color-muted: #F1F5F9;
-  --color-muted-foreground: #64748B;
+  --color-muted: #E2E8F0;
+  --color-muted-foreground: #475569;
 
   --color-accent: #F97316;
   --color-accent-foreground: #020817;
@@ -26,8 +26,8 @@
   --color-destructive: #EF4444;
   --color-destructive-foreground: #F8FAFC;
 
-  --color-border: #E2E8F0;
-  --color-input: #E2E8F0;
+  --color-border: #93C5FD;
+  --color-input: #93C5FD;
   --color-ring: #2563EB;
 
   --color-brand-primary: #2563EB;
@@ -46,6 +46,27 @@ body {
   background: var(--color-background);
   color: var(--color-foreground);
   font-family: var(--font-sans);
+}
+
+.page-bg {
+  background-image: url("/Gemini_Generated_Image_b0s3rmb0s3rmb0s3.png");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+
+.page-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(239, 246, 255, 0.35);
+  z-index: 0;
+}
+
+.page-bg > * {
+  position: relative;
+  z-index: 1;
 }
 
 @keyframes fluidGradient {
@@ -104,3 +125,5 @@ body {
   position: relative;
   z-index: 1;
 }
+
+

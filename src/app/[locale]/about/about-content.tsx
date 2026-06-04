@@ -20,7 +20,7 @@ export default function AboutContent() {
   return (
     <>
       <Navigation />
-      <main>
+      <main className="page-bg">
         <PageHeader title={t("pageTitle")} description={t("pageDescription")} />
         <Reveal>
           <section className="py-16 sm:py-24 bg-card">
@@ -29,8 +29,6 @@ export default function AboutContent() {
                 <h2 className="text-3xl sm:text-4xl font-black text-foreground tracking-tight mb-6">{t("storyTitle")}</h2>
                 <div className="space-y-4 text-muted-foreground leading-relaxed">
                   <p>{t("storyP1")}</p>
-                  <p>{t("storyP2")}</p>
-                  <p>{t("storyP3")}</p>
                 </div>
               </div>
             </div>

@@ -24,6 +24,7 @@ export function useScroll() {
 export function ScrollProvider({ children }: { children: ReactNode }) {
   const [lenis, setLenis] = useState<Lenis | null>(null)
   const [scrollProgress, setScrollProgress] = useState(0)
+  const rafRef = useRef<number>(0)
 
   useEffect(() => {
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches
@@ -45,11 +46,19 @@ export function ScrollProvider({ children }: { children: ReactNode }) {
     })
     gsap.ticker.lagSmoothing(0)
 
+    let ticking = false
     lenisInstance.on("scroll", ({ progress }: { progress: number }) => {
-      setScrollProgress(progress)
+      if (!ticking) {
+        ticking = true
+        rafRef.current = requestAnimationFrame(() => {
+          setScrollProgress(progress)
+          ticking = false
+        })
+      }
     })
 
     return () => {
+      cancelAnimationFrame(rafRef.current)
       lenisInstance.destroy()
       gsap.ticker.remove(lenisInstance.raf)
     }

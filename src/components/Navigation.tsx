@@ -1,7 +1,8 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { Menu, X, Package, Globe } from "lucide-react"
+import Image from "next/image"
+import { Menu, X, Globe } from "lucide-react"
 import { useTranslations, useLocale } from "next-intl"
 import { Link, usePathname, useRouter } from "@/i18n/navigation"
 import { useScroll } from "@/lib/scroll-context"
@@ -34,11 +35,9 @@ export function Navigation() {
       <nav className="max-w-7xl mx-auto px-6">
         <div className="flex items-center justify-between h-16 md:h-20">
           <Link href="/" className="flex items-center gap-2">
-            <div className="w-10 h-10 rounded-xl bg-primary flex items-center justify-center">
-              <Package className="w-5 h-5 text-primary-foreground" />
-            </div>
+            <Image src="/logo.png" alt="Nemow Al Toseil" width={56} height={56} className="w-14 h-14 object-contain rounded-xl" />
             <span className="text-xl font-bold text-foreground">
-              Nemow<span className="text-primary">Logistics</span>
+              Nemow<span className="text-primary">Al Toseil</span>
             </span>
           </Link>
 
@@ -46,14 +45,8 @@ export function Navigation() {
             <Link href="/" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
               {t("home")}
             </Link>
-            <Link href="/services" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
-              {t("services")}
-            </Link>
             <Link href="/about" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
               {t("about")}
-            </Link>
-            <Link href="/blog" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
-              {t("blog")}
             </Link>
             <Link href="/faq" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
               {t("faq")}
@@ -89,19 +82,13 @@ export function Navigation() {
         </div>
 
         {isOpen && (
-          <div className="md:hidden absolute top-16 left-0 right-0 bg-background/95 backdrop-blur-lg border-b border-border">
+          <div className="md:hidden absolute top-16 left-0 right-0 bg-card/95 backdrop-blur-lg border-b border-border">
             <div className="px-6 py-4 flex flex-col gap-4">
               <Link href="/" className="text-lg font-medium text-muted-foreground hover:text-foreground transition-colors py-2" onClick={() => setIsOpen(false)}>
                 {t("home")}
               </Link>
-              <Link href="/services" className="text-lg font-medium text-muted-foreground hover:text-foreground transition-colors py-2" onClick={() => setIsOpen(false)}>
-                {t("services")}
-              </Link>
               <Link href="/about" className="text-lg font-medium text-muted-foreground hover:text-foreground transition-colors py-2" onClick={() => setIsOpen(false)}>
                 {t("about")}
-              </Link>
-              <Link href="/blog" className="text-lg font-medium text-muted-foreground hover:text-foreground transition-colors py-2" onClick={() => setIsOpen(false)}>
-                {t("blog")}
               </Link>
               <Link href="/faq" className="text-lg font-medium text-muted-foreground hover:text-foreground transition-colors py-2" onClick={() => setIsOpen(false)}>
                 {t("faq")}

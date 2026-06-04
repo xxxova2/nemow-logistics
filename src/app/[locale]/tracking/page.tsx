@@ -81,7 +81,7 @@ export default function TrackingPage() {
   return (
     <>
       <Navigation />
-      <main>
+      <main className="page-bg">
         <PageHeader title={t("pageTitle")} description={t("pageDescription")} />
 
         <Reveal>

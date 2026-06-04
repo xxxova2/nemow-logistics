@@ -20,7 +20,7 @@ export default function PrivacyContent() {
   return (
     <>
       <Navigation />
-      <main>
+      <main className="page-bg">
         <PageHeader title={t("pageTitle")} description="" />
         <Reveal>
           <section className="py-16 sm:py-24 bg-card">

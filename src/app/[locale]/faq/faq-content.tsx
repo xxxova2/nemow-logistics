@@ -25,7 +25,7 @@ export default function FaqContent() {
   return (
     <>
       <Navigation />
-      <main>
+      <main className="page-bg">
         <PageHeader title={t("pageTitle")} description={t("pageDescription")} />
         <Reveal>
           <section className="py-16 sm:py-24 bg-card">

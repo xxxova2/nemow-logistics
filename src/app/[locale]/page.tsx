@@ -3,7 +3,6 @@ import dynamic from "next/dynamic"
 import { Navigation } from "@/components/Navigation"
 import { HeroSection } from "@/components/sections/hero-section"
 import { PackageSection } from "@/components/sections/package-section"
-import { ServicesSection } from "@/components/sections/services-section"
 import { CTASection, Footer } from "@/components/sections/cta-section"
 
 const Scene3D = dynamic(
@@ -26,7 +25,6 @@ export default function Home() {
       <main className="relative">
         <HeroSection />
         <PackageSection />
-        <ServicesSection />
         <CTASection />
         <Footer />
       </main>

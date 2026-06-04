@@ -60,7 +60,7 @@ export function PackageSection() {
                 <><br />{t("heading3")}</>
               )}
             </h2>
-            <p className="text-lg text-muted-foreground mb-8 max-w-lg text-pretty">{t("description")}</p>
+            <p className="text-lg text-foreground/80 mb-8 max-w-lg text-pretty">{t("description")}</p>
             <div className="flex flex-col sm:flex-row gap-3 mb-8">
               <div className="relative flex-1">
                 <Search className="absolute ltr:left-3 rtl:right-3 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
@@ -69,7 +69,7 @@ export function PackageSection() {
                   placeholder={t("placeholder")}
                   value={trackingNumber}
                   readOnly
-                  className="ltr:pl-10 rtl:pr-10 h-12 bg-card border-border text-foreground"
+                  className="ltr:pl-10 rtl:pr-10 h-12 bg-card border-border/50 text-foreground"
                 />
               </div>
               <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground h-12 px-8">
@@ -79,16 +79,16 @@ export function PackageSection() {
             <div className="flex flex-wrap gap-6">
               <div className="flex items-center gap-2">
                 <Clock className="w-5 h-5 text-accent" />
-                <span className="text-sm text-muted-foreground">{t("estDelivery")} <span className="text-foreground">{t("today")}</span></span>
+                <span className="text-sm text-foreground/70">{t("estDelivery")} <span className="text-foreground">{t("today")}</span></span>
               </div>
               <div className="flex items-center gap-2">
                 <MapPin className="w-5 h-5 text-primary" />
-                <span className="text-sm text-muted-foreground">{t("distance")} <span className="text-foreground">{t("milesAway")}</span></span>
+                <span className="text-sm text-foreground/70">{t("distance")} <span className="text-foreground">{t("milesAway")}</span></span>
               </div>
             </div>
           </div>
 
-          <div ref={timelineRef} className="relative p-6 md:p-8 rounded-3xl bg-card/50 backdrop-blur-sm border border-border">
+          <div ref={timelineRef} className="relative p-6 md:p-8 rounded-3xl bg-card/80 backdrop-blur-md border border-border/50 shadow-sm">
             <div className="flex items-center justify-between mb-8 pb-4 border-b border-border">
               <div>
                 <p className="text-sm text-muted-foreground mb-1">{t("trackingNumber")}</p>

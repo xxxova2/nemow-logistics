@@ -14,7 +14,7 @@ export function IntlProvider({
   messages: Record<string, unknown>
 }) {
   return (
-    <NextIntlClientProvider messages={messages} locale={locale}>
+    <NextIntlClientProvider messages={messages} locale={locale} timeZone="Asia/Riyadh">
       <ScrollProvider>
         {children}
       </ScrollProvider>

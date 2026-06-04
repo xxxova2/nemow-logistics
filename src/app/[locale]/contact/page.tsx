@@ -14,13 +14,22 @@ export default function ContactPage() {
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
+    const form = e.currentTarget
+    const data = new FormData(form)
+    const name = data.get("name")
+    const email = data.get("email")
+    const phone = data.get("phone")
+    const subject = data.get("subject")
+    const message = data.get("message")
+    const mailtoLink = `mailto:sales@nemow.net?subject=${encodeURIComponent(String(subject))}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\nPhone: ${phone}\n\n${message}`)}`
+    window.location.href = mailtoLink
     setSubmitted(true)
   }
 
   return (
     <>
       <Navigation />
-      <main>
+      <main className="page-bg">
         <PageHeader
           title={t("pageTitle")}
           description={t("pageDescription")}
@@ -44,20 +53,20 @@ export default function ContactPage() {
                     <div className="grid sm:grid-cols-2 gap-4">
                       <div>
                         <label className="text-xs font-bold text-muted-foreground uppercase tracking-wider mb-1.5 block">{t("fullName")}</label>
-                        <input required type="text" className="w-full px-4 py-3 bg-card/50 border border-border rounded-xl text-sm text-foreground outline-none focus:border-accent transition-colors" placeholder={t("fullNamePlaceholder")} />
+                        <input required type="text" name="name" className="w-full px-4 py-3 bg-card/50 border border-border rounded-xl text-sm text-foreground outline-none focus:border-accent transition-colors" placeholder={t("fullNamePlaceholder")} />
                       </div>
                       <div>
                         <label className="text-xs font-bold text-muted-foreground uppercase tracking-wider mb-1.5 block">{t("email")}</label>
-                        <input required type="email" className="w-full px-4 py-3 bg-card/50 border border-border rounded-xl text-sm text-foreground outline-none focus:border-accent transition-colors" placeholder={t("emailPlaceholder")} />
+                        <input required type="email" name="email" className="w-full px-4 py-3 bg-card/50 border border-border rounded-xl text-sm text-foreground outline-none focus:border-accent transition-colors" placeholder={t("emailPlaceholder")} />
                       </div>
                     </div>
                     <div>
                       <label className="text-xs font-bold text-muted-foreground uppercase tracking-wider mb-1.5 block">{t("phone")}</label>
-                      <input type="tel" className="w-full px-4 py-3 bg-card/50 border border-border rounded-xl text-sm text-foreground outline-none focus:border-accent transition-colors" placeholder={t("phonePlaceholder")} />
+                        <input type="tel" name="phone" className="w-full px-4 py-3 bg-card/50 border border-border rounded-xl text-sm text-foreground outline-none focus:border-accent transition-colors" placeholder={t("phonePlaceholder")} />
                     </div>
                     <div>
                       <label className="text-xs font-bold text-muted-foreground uppercase tracking-wider mb-1.5 block">{t("subject")}</label>
-                      <select className="w-full px-4 py-3 bg-card/50 border border-border rounded-xl text-sm text-foreground outline-none focus:border-accent transition-colors">
+                        <select name="subject" className="w-full px-4 py-3 bg-card/50 border border-border rounded-xl text-sm text-foreground outline-none focus:border-accent transition-colors">
                         <option>{t("subjectGeneral")}</option>
                         <option>{t("subjectQuote")}</option>
                         <option>{t("subjectPartner")}</option>
@@ -66,7 +75,7 @@ export default function ContactPage() {
                     </div>
                     <div>
                       <label className="text-xs font-bold text-muted-foreground uppercase tracking-wider mb-1.5 block">{t("message")}</label>
-                      <textarea required rows={5} className="w-full px-4 py-3 bg-card/50 border border-border rounded-xl text-sm text-foreground outline-none focus:border-accent transition-colors resize-none" placeholder={t("messagePlaceholder")} />
+                        <textarea required name="message" rows={5} className="w-full px-4 py-3 bg-card/50 border border-border rounded-xl text-sm text-foreground outline-none focus:border-accent transition-colors resize-none" placeholder={t("messagePlaceholder")} />
                     </div>
                     <button type="submit" className="w-full bg-accent text-accent-foreground py-3 rounded-xl text-sm font-bold hover:opacity-90 transition-all">
                       {t("sendMessage")}
@@ -84,7 +93,7 @@ export default function ContactPage() {
                   </div>
                   <div className="flex items-center gap-3 text-sm text-muted-foreground">
                     <Phone className="w-5 h-5 text-accent shrink-0" />
-                    <span>{t("phoneLabel")}</span>
+                    <a href="tel:0555107018" className="hover:text-primary transition-colors">{t("phoneLabel")}</a>
                   </div>
                   <div className="flex items-start gap-3 text-sm text-muted-foreground">
                     <MapPin className="w-5 h-5 text-accent shrink-0 mt-0.5" />
